@@ -27,7 +27,7 @@ const Regular = () => {
         })
         .catch((err) => console.log(err));
     }else{
-      axios.post("https://rocky-taiga-67615.herokuapp.com/pdate-todo", { _id: isUpdating, text })
+      axios.post("https://rocky-taiga-67615.herokuapp.com/update-todo", { _id: isUpdating, text })
         .then((res) => {
           console.log(res.data);
           setText("");
