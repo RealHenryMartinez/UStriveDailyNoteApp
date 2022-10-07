@@ -20,6 +20,7 @@ app.use(cors());
 // using the router
 app.use(routes);
 
+
 // connecting to database
 mongoose
 .connect(process.env.MONGO_URI, {
@@ -41,8 +42,8 @@ if (process.env.NODE_ENV === 'production') {
     });
   }
 
-const PORT = process.env.PORT || 4033;
+const PORT = process.env.PORT || 4020;
 
 app.listen(PORT, () => {
-    console.log('app listening on port 5000')
+    console.log('app listening on port 4020')
 })
