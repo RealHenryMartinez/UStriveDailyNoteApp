@@ -12,7 +12,7 @@ const Regular = () => {
   const [isUpdating, setUpdating] = useState("");
 
   useEffect(() => {
-    axios.get("https://rocky-taiga-67615.herokuapp.com/get-todo")
+    axios.get("http://localhost:4020/get-todo")
       .then((res) => setTodo(res.data))
       .catch((err) => console.log(err));
   })
@@ -20,14 +20,14 @@ const Regular = () => {
   const addUpdateTodo = () => {
 
     if (isUpdating === "") {
-      axios.post("https://rocky-taiga-67615.herokuapp.com/save-todo", { text })
+      axios.post("http://localhost:4020/save-todo", { text })
         .then((res) => {
           console.log(res.data);
           setText("");
         })
         .catch((err) => console.log(err));
     }else{
-      axios.post("https://rocky-taiga-67615.herokuapp.com/update-todo", { _id: isUpdating, text })
+      axios.post("http://localhost:4020/update-todo", { _id: isUpdating, text })
         .then((res) => {
           console.log(res.data);
           setText("");
@@ -38,7 +38,7 @@ const Regular = () => {
   }
 
   const deleteTodo = (_id) => {
-    axios.post("https://rocky-taiga-67615.herokuapp.com/delete-todo", { _id })
+    axios.post("http://localhost:4020/delete-todo", { _id })
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
