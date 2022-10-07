@@ -13,7 +13,7 @@ const Weekly = () => {
   const [isUpdating, setUpdating] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:4020/get-weekly")
+    axios.get("https://rocky-taiga-67615.herokuapp.com/get-weekly")
       .then((res) => setTodo(res.data))
       .catch((err) => console.log(err));
   })
@@ -21,14 +21,14 @@ const Weekly = () => {
   const addUpdateTodo = () => {
 
     if (isUpdating === "") {
-      axios.post("http://localhost:4020/save-weekly", { text })
+      axios.post("https://rocky-taiga-67615.herokuapp.com/save-weekly", { text })
         .then((res) => {
           console.log(res.data);
           setText("");
         })
         .catch((err) => console.log(err));
     }else{
-      axios.post("http://localhost:4020/update-weekly", { _id: isUpdating, text })
+      axios.post("https://rocky-taiga-67615.herokuapp.com/update-weekly", { _id: isUpdating, text })
         .then((res) => {
           console.log(res.data);
           setText("");
@@ -39,7 +39,7 @@ const Weekly = () => {
   }
 
   const deleteTodo = (_id) => {
-    axios.post("http://localhost:4020/delete-weekly", { _id })
+    axios.post("https://rocky-taiga-67615.herokuapp.com/delete-weekly", { _id })
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
